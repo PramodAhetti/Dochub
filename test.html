@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+</head>
+<body>
+    <iframe id="pdfFrame" width="100%" height="600"></iframe>
+
+    <script>
+        // Function to fetch PDF content from the backend and display it in the iframe
+        async function displayPDF() {
+            try {
+                const response = await fetch('http://localhost:5000/report/test', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: '65db4a0d2e7f11fae3652888' }) // Replace with your desired ID
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch PDF content');
+                }
+
+                const { report } = await response.json(); // Extracting base64 report data
+
+                // Set base64 data as the src attribute of the iframe
+                const pdfFrame = document.getElementById('pdfFrame');
+                pdfFrame.src = `data:application/pdf;base64,${report}`;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Call displayPDF function to fetch and display the PDF content
+        displayPDF();
+    </script>
+</body>
+</html>
