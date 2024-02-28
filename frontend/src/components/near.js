@@ -1,20 +1,14 @@
 import React, { useEffect, useRef } from "react";
-
+import PdfViewer from "./pdfviewer";
 const Near = (props) => {
-const dateString = props.post.date;
-const timestamp = parseInt(dateString, 10);
-const now = new Date(timestamp);
-const hours = now.getHours().toString().padStart(2, '0'); // Add leading zero if needed
-const minutes = now.getMinutes().toString().padStart(2, '0');
-const seconds = now.getSeconds().toString().padStart(2, '0');
-const formattedTime = `${hours}:${minutes}:${seconds}`;
+  console.log(props.props.report);
   return (
-    <div className="postbox">
+    // <div className="postbox">
             
-      <sub className="user">{props.post.name}</sub>
-      <sub className="message">{" : " + props.post.message}<sub className="date">{formattedTime}</sub></sub>
-
-    </div>
+    //   <sub className="message">{" : " + props.props.message}</sub>
+    //   <PdfViewer pdfBase64={props.props.report}></PdfViewer>
+    // </div>
+    <PdfViewer pdfBase64={props.props.report}></PdfViewer>
   );
 };
 

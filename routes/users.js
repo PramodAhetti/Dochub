@@ -28,7 +28,6 @@ router.post('/login',async(req,res)=>{
             }
         }
         let token=jwt.sign(payload,process.env.SECRETKEY,{expiresIn:'10h'});
-           res.cookie("token",token);   
            res.json({data:{token}});
        }else{
            throw "User doesnt exists"    
