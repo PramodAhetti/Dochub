@@ -10,12 +10,12 @@ export default function Newpost() {
     const fileInput = document.getElementById("file");
     const file = fileInput.files[0];
     const message = document.getElementById("message").value;
-
+    console.log(localStorage.getItem('token'));
     const formData = new FormData();
     formData.append("file", file);
     formData.append("message", message);
     formData.append("token",localStorage.getItem('token'));
-    formData.append("clientId",'65daf8966a50de5cce4382d4')
+    formData.append("clientId",'65daf8966a50de5cce4382d4');
 
     try {
       const response = await axios.post(`${backendurl}/report/upload`, formData, {

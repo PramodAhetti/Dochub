@@ -34,7 +34,11 @@
   grid-row: 1/23;
   grid-column: 1/23;
 }
-
+.pdfviewer{
+  border-radius: 1vw;
+  height: 50vh;
+  width: 80vw;
+}
 
 .NewPost{
   box-shadow: 2vw 2vw 0.1vw rgb(145, 144, 144);
@@ -142,11 +146,17 @@ box-shadow: 2vw 2vw 0.1vw rgb(145, 144, 144);
 }
 .message{ 
   color:black;
+  background-color:white;
+  border: solid black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  align-items: center;
+  padding:1vw;
   height: 5vh;
-  font-size: 4vw;
-  word-wrap:break-word;
-  border-radius: 2vw;
-  margin-right:2vw;
+  font-size: 5vw;
+  margin: 1vw;
  }
  .user{
   margin:1vw;
@@ -232,6 +242,9 @@ grid-column: 2/21;
   box-shadow: 2vw 2vw 0.1vw rgb(145, 144, 144);
   padding: 3vw;
 }
+.post{
+  border-radius:1vw; 
+}
 @media  screen and (orientation:landscape) {
   * {
     font-family: 'Courier New', Courier, monospace;
@@ -249,7 +262,8 @@ grid-column: 2/21;
   }
   
   .chatbox {
-    border-radius: 2vw;
+
+    border-radius: 1vw;
     text-align: center;
     grid-column: 2/21;
     grid-row: 4/19;
@@ -267,7 +281,7 @@ grid-column: 2/21;
   }
   
   .NewPost {
-    box-shadow: 2vw 2vw 2vw rgb(145, 144, 144);
+    box-shadow: 0.4vw 0.4vw 0.1vw rgb(118, 116, 116);
     box-shadow: none;
     background-color: rgb(255, 255, 255);
     grid-column: 5/18;
@@ -283,14 +297,16 @@ grid-column: 2/21;
   }
   
   .NewNear {
-    box-shadow: 1vw 1vw 0.2vw rgb(145, 144, 144);
+    box-shadow: 0.4vw 0.4vw 0.1vw rgb(118, 116, 116);
     border: solid black;
     font-size: 2vw;
     height: 0.5vh;
     align-self: center;
     width: 12vw;
     font-weight: bolder;
-    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   body {
@@ -314,7 +330,7 @@ grid-column: 2/21;
   }
   
   .loginbox {
-    height: 40vh;
+    height: 50vh;
     color:black;
     width: 30vw;
     display: flex;
