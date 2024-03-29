@@ -2,7 +2,8 @@ const express=require('express')
 const router=express.Router();
 const userauth=require('../middleware/auth').userauth;
 const doctorauth=require('../middleware/auth').doctorauth;
-const reports=require('../models/Report')
+const reports=require('../models/Report');
+const pdf=require('../models/files');
 const multer=require('multer');
 
 
@@ -22,21 +23,25 @@ router.post('/myreport', userauth, async (req, res) => {
 
 
 //route to add new post
-router.post('/new',userauth,async (req,res)=>{
-     try{
-        let newReport=new reports({
-            ownedId:req.body.userId,
-            report:req.body.report,
-            date:Date.now()
-         });
-         await newReport.save();
-         return res.send({msg:'post saved'});
-     }catch(err){
-        res.status(400).send({error:"server error"});
-        console.log(err);    
-    }
+// router.post('/new',userauth,async (req,res)=>{
+//      try{
+//         let newfile=new file({
+//             data:req.body.report
+//         })
+//         await newfile.save();
+//         let newReport=new reports({
+//             ownedId:req.body.userId,
+//             report:newfile.id,
+//             date:Date.now()
+//          });
+//          await newReport.save();
+//          return res.send({msg:'post saved'});
+//      }catch(err){
+//         res.status(400).send({error:"server error"});
+//         console.log(err);    
+//     }
 
-});
+// });
 
 //do from here tomorrow
 
@@ -48,9 +53,13 @@ router.post('/upload',upload.single('file'),doctorauth,async(req,res)=>{
      const report=req.file.buffer.toString('base64');
      console.log(report);
      const ownedId=req.body.clientId;
+     let newpdf=new pdf({
+        data:report
+     }) 
+     await newpdf.save();
      let newReport=new reports({
             ownedId,
-            report,
+            report:newpdf.id,
             message:req.body.message,
             date:Date.now()
          });

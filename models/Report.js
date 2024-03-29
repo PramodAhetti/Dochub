@@ -13,8 +13,7 @@ let report=new mongoose.Schema({
          require:true
        },
        report:{
-          type:String,
-          required:true
+          type:mongoose.Schema.Types.ObjectId,
        },
        comment:{
          type:Array,
