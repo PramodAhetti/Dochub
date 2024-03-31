@@ -83,8 +83,7 @@ body {
 }
 
 .App{
-  background-color:white;
-  background-image: url('./_b7479a0b-9686-474e-a74a-656d32894505.jpg');
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-HcFZi4cGemWmKWDCtLvDsUgSc16mMJtBnyhpJcMEvA&s);
   background-position: center;
   background-size: 130%;
   background-repeat: no-repeat;
@@ -94,7 +93,7 @@ body {
   overflow: hidden;
   grid-template-rows: repeat(21,1fr);
   grid-template-columns: repeat(21,1fr);
-  background-color: black;
+  background-color: rgb(23, 30, 58);
   border-radius: 0vw;
 }
 
@@ -156,14 +155,10 @@ box-shadow: 2vw 2vw 0.1vw rgb(145, 144, 144);
   background-color:white;
   border: solid black;
   font-weight: bold;
-  display: flex;
-  flex-direction: row;
-  justify-content: baseline;
-  align-items: center;
   padding:1vw;
-  height: 5vh;
-  font-size: 5vw;
-  margin: 1vw;
+  text-align: left;
+  font-size: 4vw;
+  margin: 2vw;
  }
  .user{
   margin:1vw;
@@ -405,8 +400,6 @@ grid-column: 2/21;
     color: black;
     height: 3vh;
     font-size: 1vw;
-    word-wrap: break-word;
-    border-radius: 1vw;
     margin-right: 1vw;
   }
   
