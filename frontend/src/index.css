@@ -16,6 +16,9 @@
 .chatbox::-webkit-scrollbar {
   display: none;
 }
+.pdfviewer::-webkit-scrollbar{
+  display:none;
+}
 .chatbox{
   border-radius: 2vw;
   text-align: center;
@@ -34,10 +37,13 @@
   grid-row: 1/23;
   grid-column: 1/23;
 }
+.pdf{
+  height: 100%;
+  width: 100%;
+}
 .pdfviewer{
-  border-radius: 1vw;
-  height: 50vh;
-  width: 80vw;
+  grid-row:2/3;
+  grid-column: 2/21;
 }
 
 .NewPost{
@@ -109,6 +115,7 @@ background-color: rgba(255, 255, 255, 0.6);
 box-shadow: 2vw 2vw 0.1vw rgb(145, 144, 144);
 }
 .LoginInput,.LoginButton{
+  border-radius: 1vw;
   color: black;
   font-size: 7vw;
   text-align: center;
@@ -209,7 +216,8 @@ grid-column: 2/21;
 }
 .Title{
   grid-column: 1/22;
-  grid-row: 2/3;
+  grid-row: 1/2;
+  margin:1vw;
   text-align: center;
   font-size: 15vw;
   color: white;
@@ -247,7 +255,7 @@ grid-column: 2/21;
 }
 @media  screen and (orientation:landscape) {
   * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-decoration: none;
     border-radius: 4vw;
   }
@@ -260,21 +268,31 @@ grid-column: 2/21;
   .chatbox::-webkit-scrollbar {
     display: none;
   }
-  
+  .pdfviewer::-webkit-scrollbar{
+    display: none;
+  }
+  iframe{
+    border-radius: 1vw;
+  } 
   .chatbox {
 
     border-radius: 1vw;
     text-align: center;
-    grid-column: 2/21;
-    grid-row: 4/19;
-    font-size: 3vw;
+    grid-column: 1/4;
+    grid-row: 3/19;
     overflow: scroll;
     border: solid black;
     color: white;
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0.1vw 2vw 2vw rgb(145, 144, 144);
+    margin:0.5vw;
   }
   
+  .pdfviewer{
+    grid-row: 3/18;
+    grid-column: 4/22;
+    margin: 1vw;
+  }
   .HomePage {
     grid-row: 1/23;
     grid-column: 1/23;
@@ -282,7 +300,7 @@ grid-column: 2/21;
   
   .NewPost {
     box-shadow: 0.4vw 0.4vw 0.1vw rgb(118, 116, 116);
-    box-shadow: none;
+    border-radius: 1vw;
     background-color: rgb(255, 255, 255);
     grid-column: 5/18;
     height: 12vh;
@@ -299,6 +317,7 @@ grid-column: 2/21;
   .NewNear {
     box-shadow: 0.4vw 0.4vw 0.1vw rgb(118, 116, 116);
     border: solid black;
+    border-radius: 1vw;
     font-size: 2vw;
     height: 0.5vh;
     align-self: center;
@@ -384,10 +403,10 @@ grid-column: 2/21;
   
   .message {
     color: black;
-    height: 5vh;
-    font-size: 1.2vw;
+    height: 3vh;
+    font-size: 1vw;
     word-wrap: break-word;
-    border-radius: 2vw;
+    border-radius: 1vw;
     margin-right: 1vw;
   }
   
@@ -403,6 +422,7 @@ grid-column: 2/21;
   }
   
   .NewBox {
+    border-radius: 1vw;
     grid-column: 2/21;
     grid-row: 4/19;
     box-shadow: 0.1vw 2vw 2vw rgb(145, 144, 144);
@@ -429,7 +449,7 @@ grid-column: 2/21;
   
   .Title {
     grid-column: 1/22;
-    grid-row: 2/3;
+    grid-row: 1/3;
     text-align: center;
     font-size: 3vw;
     color: white;

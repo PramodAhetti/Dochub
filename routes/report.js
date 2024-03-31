@@ -93,7 +93,18 @@ router.post('/delete', userauth, async (req, res) => {
     }
 
 });
-
+router.post('/file',userauth,async(req,res)=>{
+   try{
+      let file=await pdf.findById(req.body.fileId);
+      if(file){
+        res.send({data:file});
+      }else{
+        throw "file not found";
+      }
+   }catch(err){
+      res.status(400).send({error:err});
+   }
+})
 router.post('/addcomment', userauth, async (req, res) => {
     try {
         let report = await reports.findById(req.body.postId);

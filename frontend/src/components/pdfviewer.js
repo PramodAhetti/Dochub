@@ -5,7 +5,7 @@ function PdfViewer({ pdfBase64 }) {
 
   return (
 
-<iframe src={pdfUrl} type="application/pdf" className="pdfviewer" />
+<iframe src={pdfUrl} type="application/pdf" className='pdf' />
 
   );
 }
