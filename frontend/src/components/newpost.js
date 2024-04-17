@@ -15,7 +15,7 @@ export default function Newpost() {
     formData.append("file", file);
     formData.append("message", message);
     formData.append("token",localStorage.getItem('token'));
-    formData.append("clientId",'65daf8966a50de5cce4382d4');
+    formData.append("clientName","pramod2");
 
     try {
       const response = await axios.post(`${backendurl}/report/upload`, formData, {

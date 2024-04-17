@@ -5,7 +5,7 @@ const doctorauth = require('../middleware/auth').doctorauth;
 const reports = require('../models/Report');
 const pdf = require('../models/files');
 const multer = require('multer');
-
+const adduserid=require('../middleware/adduserid')
 
 const upload = multer();
 
@@ -22,7 +22,7 @@ router.post('/myreport', userauth, async (req, res) => {
 });
 
 
-router.post('/new', upload.single('file'), userauth, async (req, res) => {
+router.post('/new', upload.single('file'),adduserid, userauth, async (req, res) => {
     try {
         if (!req.file) {
             throw "No file was uploaded";
@@ -33,6 +33,7 @@ router.post('/new', upload.single('file'), userauth, async (req, res) => {
             data:report 
         })
         await newfile.save();
+        console.log("this is from the mongodb: ",req.body.userId)
         let newReport = new reports({
             ownedId: req.body.userId,
             report: newfile.id,
@@ -47,14 +48,14 @@ router.post('/new', upload.single('file'), userauth, async (req, res) => {
     }
 });
 
-router.post('/upload', upload.single('file'), doctorauth, async (req, res) => {
+router.post('/upload', upload.single('file'),adduserid, doctorauth, async (req, res) => {
     try {
         if (!req.file) {
             throw "No file was uploaded";
         }
         const report = req.file.buffer.toString('base64');
         console.log(report);
-        const ownedId = req.body.clientId;
+        const ownedId = req.body.userId;
         let newpdf = new pdf({
             data: report
         })
@@ -120,7 +121,6 @@ router.post('/addcomment', userauth, async (req, res) => {
 router.post('/test', async (req, res) => {
     try {
         let data = await reports.findOne({ ownedId: req.body.id });
-
         res.send(data);
     } catch (err) {
         res.status(400).send({ error: err })
